@@ -37,4 +37,5 @@ PhpInstall()
     cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf
     cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf
     sed -i "s/nobody/www-data/g" /usr/local/php/etc/php-fpm.d/www.conf
+    sed -i "s/127.0.0.1/0.0.0.0/g" /usr/local/php/etc/php-fpm.d/www.conf
 }
