@@ -26,13 +26,16 @@ PhpExtendInatallFunction()
 
     # 避免某些扩展的特殊机制导致安装失败
     if [[ ! -f $php_dir/ext/$1/config.m4 ]]; then
-        if [[ -f $php_dir/ext/$1/config0.m4 ]]; then
+        if [[ -f $php_dir/ext/$1/config0.m4 ]];then
             mv $php_dir/ext/$1/config0.m4 $php_dir/ext/$1/config.m4
+        else
+            echo "[PHP扩展安装][$1] 扩展安装出现出题，请重试." >> $log
+            return
         fi
     fi
 
     # 安装依赖
-    phpize $php_dir/ext/$1
+    /usr/local/php/bin/phpize $php_dir/ext/$1
     $php_dir/ext/$1/configure
     make&&make install
 
