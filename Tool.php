@@ -1,6 +1,7 @@
 <?php
 
 $path = __DIR__ . '/PhpToolClass';
+var_dump($_SERVER);
 
 HongInit($path);
 

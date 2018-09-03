@@ -5,8 +5,8 @@ if (function_exists('hLog')) {
 }
 else {
     function hLog($source) {
+        error_log(' ');
         error_log('----- start ----');
-        error_log('-----'. __FILE__.'----');
 
         if (is_array($source)) {
             error_log(print_r($source, true));
@@ -15,6 +15,6 @@ else {
             error_log($source);
         }
 
-        error_log('----- end ----');
+        error_log('-----  end  ----');
     }
 }
