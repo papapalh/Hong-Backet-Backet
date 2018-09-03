@@ -8,6 +8,9 @@ PhpExtendInatall()
 
     # 安装 openssl 扩展
     PhpExtendInatallFunction openssl
+
+    # 特殊扩展安装
+    PhpExtendInatallSpecial
 }
 
 # 扩展安装通用方法
@@ -41,4 +44,21 @@ PhpExtendInatallFunction()
 
     # 修改php/ini
     sed -i "s/;extension=$1/extension=$1/g" /usr/local/php/etc/php.ini
+}
+
+# 特殊扩展安装
+PhpExtendInatallSpecial()
+{
+    # 安装 xhprof 扩展
+    git clone https://github.com/longxinH/xhprof.git $php_dir/ext/xhprof
+
+    /usr/local/php/bin/phpize $php_dir/ext/xhprof/extension
+
+    $php_dir/ext/xhprof/extension/configure
+
+    make&&make install
+
+    echo '[xhprof]' >> /usr/local/php/etc/php.ini
+    echo 'extension=xhprof.so' >> /usr/local/php/etc/php.ini
+    echo 'xhprof.output_dir=/tmp/log/xhprof' >> /usr/local/php/etc/php.ini
 }
