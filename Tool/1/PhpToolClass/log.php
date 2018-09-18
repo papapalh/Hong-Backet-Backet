@@ -5,16 +5,19 @@ if (function_exists('hlog')) {
 }
 else {
     function hlog($source) {
-        error_log(' ');
+
+        $scriptPath = array_shift(debug_backtrace());
+
         error_log('----- start ----');
 
-        if (is_array($source)) {
-            error_log(print_r($source, true));
+        if (is_string($source)) {
+            error_log($source);
         }
         else {
-            error_log($source);
+            error_log(print_r($source, true));
         }
 
         error_log('-----  end  ----');
+        error_log('log路径为: ' . $scriptPath['file']);
     }
 }
