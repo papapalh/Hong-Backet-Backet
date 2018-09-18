@@ -1,10 +1,10 @@
 <?php
 
-if (function_exists('hLog')) {
-    die('Hlog 函数已经被定义.');
+if (function_exists('hlog')) {
+    die('hlog 函数已经被定义.');
 }
 else {
-    function hLog($source) {
+    function hlog($source) {
         error_log(' ');
         error_log('----- start ----');
 
