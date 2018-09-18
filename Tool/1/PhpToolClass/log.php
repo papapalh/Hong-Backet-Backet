@@ -6,7 +6,7 @@ if (function_exists('hlog')) {
 else {
     function hlog($source) {
 
-        $scriptPath = array_shift(debug_backtrace());
+        $scriptPath = debug_backtrace()[0];
 
         error_log('----- start ----');
 
