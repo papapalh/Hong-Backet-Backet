@@ -14,7 +14,7 @@ git clone https://github.com/papapalh/Hong-Backet-Backet.git
 
 cd Hong-Backet-Backet
 
-/bin/bash Backet.sh
+/bin/bash start.sh
 ~~~
 
 
@@ -24,6 +24,9 @@ cd Hong-Backet-Backet
     1. 安装根目录为 /usr/local/php
     2. php.ini 可通过 php -i | grep 'php.ini' 查看
     3. 扩展支持 mbstring openssl
+
+工具函数PHP的支持
+    1.error_log 更简单
 ~~~
 
 ## 之后计划
@@ -35,15 +38,17 @@ cd Hong-Backet-Backet
 
 ~~~
 Hong-Back-Back 主目录
-├─Global.sh            全局变量
 │
-├─Backet.sh            主要执行文件
+├─start.sh             主要执行文件
 │
-├─System.sh            服务器系统配置函数
-│
-├─php                  
-│  ├─Php.sh            php编译安装目录
-│  └─Extend.sh         php扩展安装目录
+├─Tool
+│    ├─0               根据 start.sh 进行功能划分，理论上各个功能相互独立
+│    │ │
+│    │ └─ start.sh     功能主要执行目录
+│    │ └─ ...          其他子类目录
+│    │
+│    └─1
+│      └─ ...
 │
 ├─README.md            吹牛bi 文件
 ~~~
