@@ -1,13 +1,15 @@
 #!bin/bash
 
-# 主目录
-path=$(pwd)/Tool/3
+# 配置主目录
+config_path='/home/vagrant/data/Hong-Backet-Backet'
+
+# 资源主目录
+source_path='/home/vagrant/data'
 
 # nginx
 docker run \
     --name nginx \
     -d \
-    --restart=always \
     -p 80:80/tcp \
     -p 8680:8680 \
     -p 8681:8681 \
@@ -20,9 +22,20 @@ docker run \
     -p 8688:8688 \
     -p 8689:8689 \
     -p 8690:8690 \
-    -v $path/nginx/nginx.conf:/etc/nginx/nginx.conf \
-    -v $path/nginx/conf/:/etc/nginx/conf/ \
+    -v $config_path/Tool/3/nginx/nginx.conf:/etc/nginx/nginx.conf \
+    -v $config_path/Tool/3/nginx/conf/:/etc/nginx/conf/ \
+    -v $source_path:/data \
+    --restart=always \
     nginx:1.15.5-alpine
+
+# php
+docker run \
+    --name php \
+    -itd \
+    --restart=always \
+    -p 3000:9000 \
+    -v $source_path:/data \
+    papapalh/h-php:1.0
 
     
 
