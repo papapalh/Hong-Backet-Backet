@@ -1,5 +1,4 @@
 #!bin/bash
-
 # 定义 安装 PHP 版本 / 及其路径
     php_version='php-7.2.9'
     php_path="/tmp/$php_version"
@@ -10,10 +9,8 @@
     apt-get install -y make autoconf wget vim git libmcrypt-dev libcurl4-openssl-dev libjpeg-dev libpng-dev libwebp-dev pkg-config
     apt-get install -y graphviz cmake
 
-
 # php 编译安装
     wget http://jp2.php.net/distributions/$php_version.tar.gz -P /tmp
-
     tar -xzvf $php_path.tar.gz -C /tmp
     rm $php_path.tar.gz
 

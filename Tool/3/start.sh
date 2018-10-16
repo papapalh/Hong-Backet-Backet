@@ -28,7 +28,7 @@ docker run \
     --restart=always \
     nginx:1.15.5-alpine
 
-# php
+# php7.2
 docker run \
     --name php \
     -itd \
@@ -37,5 +37,19 @@ docker run \
     -v $source_path:/data \
     papapalh/h-php:1.0
 
-    
+# mysql8
+docker run \
+    --name mysql8 \
+    --restart=always \
+    -d \
+    -p 0.0.0.0:3306:3306/tcp \
+    -e MYSQL_ROOT_PASSWORD='Wxj920127' \
+    mysql:8
 
+# redis 
+docker run \
+    --name redis \
+    --restart=always \
+    -d \
+    -p 0.0.0.0:6379:6379/tcp \
+    redis
