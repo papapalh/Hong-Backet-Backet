@@ -10,18 +10,18 @@ source_path='/home/vagrant/data'
 docker run \
     --name nginx \
     -d \
-    -p 80:80/tcp \
-    -p 8680:8680 \
-    -p 8681:8681 \
-    -p 8682:8682 \
-    -p 8683:8683 \
-    -p 8684:8684 \
-    -p 8685:8685 \
-    -p 8686:8686 \
-    -p 8687:8687 \
-    -p 8688:8688 \
-    -p 8689:8689 \
-    -p 8690:8690 \
+    -p 0.0.0.0:80:80/tcp \
+    -p 0.0.0.0:8680:8680 \
+    -p 0.0.0.0:8681:8681 \
+    -p 0.0.0.0:8682:8682 \
+    -p 0.0.0.0:8683:8683 \
+    -p 0.0.0.0:8684:8684 \
+    -p 0.0.0.0:8685:8685 \
+    -p 0.0.0.0:8686:8686 \
+    -p 0.0.0.0:8687:8687 \
+    -p 0.0.0.0:8688:8688 \
+    -p 0.0.0.0:8689:8689 \
+    -p 0.0.0.0:8690:8690 \
     -v $config_path/Tool/3/nginx/nginx.conf:/etc/nginx/nginx.conf \
     -v $config_path/Tool/3/nginx/conf/:/etc/nginx/conf/ \
     -v $source_path:/data \
@@ -53,3 +53,12 @@ docker run \
     -d \
     -p 0.0.0.0:6379:6379/tcp \
     redis
+
+# mongodb
+docker run \
+    --name mongodb \
+    --restart=always \
+    -d \
+    -p 0.0.0.0:27017:27017/tcp \
+    bitnami/mongodb
+
