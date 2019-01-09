@@ -27,7 +27,7 @@ fi
 touch $toolFunPath/toolclass.php
 
 # 循环写入 .php 文件
-for file in 'Tool/1/PhpToolClass/*.php'
+for file in '/home/homework/webroot/Hong-Backet-Backet/Tool/1/PhpToolClass/*.php'
 do
     if test -f $file
     then
