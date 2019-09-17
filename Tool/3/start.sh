@@ -1,10 +1,10 @@
 #!bin/bash
 
 # 配置主目录
-config_path='/home/vagrant/data/Hong-Backet-Backet'
+config_path='/Users/lihong/Desktop/on-line/Hong-Backet-Backet'
 
 # 资源主目录
-source_path='/home/vagrant/data'
+source_path='/Users/lihong/Desktop/on-line/'
 
 # nginx
 docker run \
